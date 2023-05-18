@@ -83,3 +83,5 @@ const gameLog = {
 	tie: 0,
 	error: 0
 }
+
+game();
