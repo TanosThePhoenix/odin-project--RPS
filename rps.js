@@ -16,6 +16,7 @@ function rpsRound(){
 	const computerChoice = getComputerChoice();
 	const winner = determineWinner(playerChoice, computerChoice);
 	updateGameLog(winner);
+	return winner;
 }
 
 //Player wins for positive return (1)
@@ -47,6 +48,21 @@ function updateGameLog(result){
 	else gameLog.error += 1;
 }
 
+function displayWinner(result) {
+	if(result > 1) {
+		alert('Congratulations! You won!');
+	}
+	else if(result < 1) {
+		alert('Computer won, better luck next time!');
+	}
+	else if(result === 0) {
+		alert('Tie!');
+	}
+	else {
+		alert('There was an error this game - check that your input matches rock, paper, or scissors!');
+	}
+}
+
 function displayGameLog(){
 	let log = `Total Results:\nPlayer: ${gameLog.player}\nComputer: ${gameLog.computer}\nTie: ${gameLog.tie}`;
 	if(gameLog.error !== 0) log = log + `\nError: ${gameLog.error}`;
@@ -55,7 +71,8 @@ function displayGameLog(){
 
 function game(){
 	for(let i = 0; i < 5; ++i){
-		rpsRound();
+		const result = rpsRound();
+		displayWinner(result);
 		displayGameLog();
 	}
 }
