@@ -14,8 +14,10 @@ function getPlayerChoice(){
 function rpsRound(){
 	const playerChoice = getPlayerChoice();
 	const computerChoice = getComputerChoice();
+	console.log(`Player choice: ${playerChoice} ; Computer choice: ${computerChoice}`);
 	const winner = determineWinner(playerChoice, computerChoice);
 	updateGameLog(winner);
+	console.log(`Winner Result: ${winner}`);
 	return winner;
 }
 
@@ -49,10 +51,10 @@ function updateGameLog(result){
 }
 
 function displayWinner(result) {
-	if(result > 1) {
+	if(result > 0) {
 		alert('Congratulations! You won!');
 	}
-	else if(result < 1) {
+	else if(result < 0) {
 		alert('Computer won, better luck next time!');
 	}
 	else if(result === 0) {
