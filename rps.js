@@ -15,6 +15,7 @@ function rpsRound(){
 	const playerChoice = getPlayerChoice();
 	const computerChoice = getComputerChoice();
 	const winner = determineWinner(playerChoice, computerChoice);
+	updateGameLog(winner);
 }
 
 //Player wins for positive return (1)
@@ -37,4 +38,31 @@ function determineWinner(playerChoice, computerChoice){
 		if(computerChoice == "paper") return 1;
 		if(computerChoice == "rock") return -1;
 	}
+}
+
+function updateGameLog(result){
+	if(result > 0) gameLog.player += 1;
+	else if(result < 0) gameLog.computer += 1;
+	else if(result === 0) gameLog.tie += 1;
+	else gameLog.error += 1;
+}
+
+function displayGameLog(){
+	let log = `Total Results:\nPlayer: ${gameLog.player}\nComputer: ${gameLog.computer}\nTie: ${gameLog.tie}`;
+	if(gameLog.error !== 0) log = log + `\nError: ${gameLog.error}`;
+	alert(log);
+}
+
+function game(){
+	for(let i = 0; i < 5; ++i){
+		rpsRound();
+		displayGameLog();
+	}
+}
+
+const gameLog = {
+	player: 0,
+	computer: 0,
+	tie: 0,
+	error: 0
 }
