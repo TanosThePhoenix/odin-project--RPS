@@ -70,6 +70,17 @@ function displayWinner(result) {
 function displayGameLog() {
 	let log = `Total Results:\nPlayer: ${gameLog.player}\nComputer: ${gameLog.computer}\nTie: ${gameLog.tie}`;
 	if (gameLog.error !== 0) log = log + `\nError: ${gameLog.error}`;
+
+	let totalGames = gameLog.player+gameLog.computer+gameLog.tie;
+	if(totalGames >= 5){
+		log += '\n\nCurrent Total Winner: ';
+		if(gameLog.player > gameLog.computer)
+			log += "Player";
+		else if(gameLog.player < gameLog.computer)
+			log += "Computer";
+		else if(gameLog.player === gameLog.computer)
+			log += "Game is currently tied, play more to see"
+	}
 	score.textContent = log;
 }
 
