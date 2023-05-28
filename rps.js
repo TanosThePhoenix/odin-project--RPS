@@ -72,11 +72,11 @@ function displayGameLog(){
 }
 
 function game(){
-	for(let i = 0; i < 5; ++i){
+	/*for(let i = 0; i < 5; ++i){
 		const result = rpsRound();
 		displayWinner(result);
 		displayGameLog();
-	}
+	}*/
 }
 
 const gameLog = {
