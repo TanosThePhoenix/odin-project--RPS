@@ -1,3 +1,7 @@
+p, h1, div{
+	padding: 0 30px 0;
+}
+
 .buttons{
 	display: flex;
 	gap: 10px;
@@ -6,4 +10,8 @@
 .choice-button{
 	flex: 0 0 100px;
 	padding: 10px 0;
+}
+
+#score, #result{
+	white-space: pre;
 }
